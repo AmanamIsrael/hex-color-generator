@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Generator</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: pink;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .contain {
+            width: 500px;
+            height: 300px;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: gray;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contain">
+        <button type="button">Generate Color</button>
+        <h4>color goes here</h4>
+    </div>
+
+    <script>
+        const body = document.querySelector('body');
+        const btn = document.querySelector('button');
+        const text = document.querySelector('h4');
+
+        function generateColor() {
+            const randomColor = `#${Math.floor(Math.random()*16777215).toString(16)}`;
+            return randomColor;
+        }
+
+        btn.addEventListener('click', () => {
+            const color = generateColor();
+            text.innerHTML = color;
+            text.style.color = color;
+            body.style.backgroundColor = color;
+        })
+    </script>
+</body>
+
+</html>
